@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+# Configure Nginx server to redirect to another page
