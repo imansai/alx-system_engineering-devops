@@ -2,13 +2,14 @@
 # make changes to config file using puppet
 
 file { 'etc/ssh/ssh_config':
-	ensure => present,
+    ensure => present,
 
 content =>"
 	
-	#SSH CLIENT CONFIGURATION
-	host*
-	IdentityFile ~/.ssh/school
-	PasswordAuthentication no
-	",
+    #SSH CLIENT CONFIGURATION
+    host*
+    IdentityFile ~/.ssh/school
+    PasswordAuthentication no
+    ",
+
 }
