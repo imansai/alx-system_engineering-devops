@@ -1,13 +1,9 @@
 #!/usr/bin/python3
 import requests
 
-def recurse(subreddit, hot_list=[], after=None):
+def recurse(subreddit, hot_list=[]):
     """Returns a list of titles of all hot posts on a given subreddit."""
-    if after is None:
-        url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
-    else:
-        url = f"https://www.reddit.com/r/{subreddit}/hot/.json?after={after}"
-    
+    url = f"https://www.reddit.com/r/{subreddit}/hot/.json"
     headers = {
         "User-Agent": "alx.api.advanced/v.1.0.0 (by /u/imannnnnnnnn)"
     }
@@ -22,7 +18,7 @@ def recurse(subreddit, hot_list=[], after=None):
         
         after = data["data"]["after"]
         if after:
-            return recurse(subreddit, hot_list, after)
+            return recurse(subreddit, hot_list)
         else:
             return hot_list
     elif response.status_code == 404:
