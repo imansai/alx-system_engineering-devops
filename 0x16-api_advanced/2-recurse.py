@@ -1,7 +1,8 @@
 #!/usr/bin/python3
-"""This script provides a function to retrieve titles of all hot posts on a given Reddit subreddit."""
+"""Function that gets titles of all hot posts on a given subreddit."""
 
 import requests
+
 
 def recurse(subreddit, hot_list=[]):
     """Returns a list of titles of all hot posts on a given subreddit."""
@@ -9,15 +10,15 @@ def recurse(subreddit, hot_list=[]):
     headers = {
         "User-Agent": "alx.api.advanced/v.1.0.0 (by /u/imannnnnnnnn)"
     }
-    
+
     response = requests.get(url, headers=headers, allow_redirects=False)
-    
+
     if response.status_code == 200:
         data = response.json()
         posts = data["data"]["children"]
         for post in posts:
             hot_list.append(post["data"]["title"])
-        
+
         after = data["data"]["after"]
         if after:
             return recurse(subreddit, hot_list)
