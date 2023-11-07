@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+"""Function that gives wordcount of  hot posts on a subreddit."""
 import requests
 
 def count_words(subreddit, word_list, counts=None, after=None):
@@ -13,15 +14,6 @@ def count_words(subreddit, word_list, counts=None, after=None):
             Defaults to None.
         after (str, optional): The ID of the last post in the current batch.
             Defaults to None.
-
-    Returns:
-        None: This function does not return any value. It prints the results.
-
-    Note:
-        - The function works recursively and counts keywords in hot articles' titles.
-        - The results are printed in descending order by count and then sorted alphabetically.
-        - Words with no matches are skipped and not printed.
-        - Invalid subreddits may return a redirect to search results. No results are printed in this case.
     """
     if counts is None:
         counts = {}
