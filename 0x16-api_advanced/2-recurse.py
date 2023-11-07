@@ -30,18 +30,3 @@ def recurse(subreddit, hot_list=[], after=None):
     else:
         print(f"Error: {response.status_code}")
         return None
-
-# This block allows running the script independently for testing
-if __name__ == '__main__':
-    import sys
-    
-    if len(sys.argv) < 2:
-        print("Please pass an argument for the subreddit to search.")
-    else:
-        subreddit_name = sys.argv[1]
-        hot_posts = recurse(subreddit_name)
-        if hot_posts:
-            print(len(hot_posts))
-        else:
-            print("None")
-
