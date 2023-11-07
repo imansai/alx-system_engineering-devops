@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+"""This script provides a function to retrieve titles of all hot posts on a given Reddit subreddit."""
+
 import requests
 
 def recurse(subreddit, hot_list=[]):
