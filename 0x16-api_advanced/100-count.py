@@ -1,19 +1,17 @@
 #!/usr/bin/python3
-"""Function that gives wordcount of  hot posts on a subreddit."""
+"""Function that gives wordcount of hot posts on a subreddit."""
 import requests
+
 
 def count_words(subreddit, word_list, counts=None, after=None):
     """
-    Recursively queries the Reddit API, parses the titles of all hot articles,
-    and prints a sorted count of given keywords.
+    Recursively queries API and prints wordcount of articles in a subreddit.
 
     Args:
-        subreddit (str): The name of the subreddit to search.
-        word_list (list): A list of keywords to count in the post titles.
-        counts (dict, optional): A dictionary to store the counts of keywords.
-            Defaults to None.
-        after (str, optional): The ID of the last post in the current batch.
-            Defaults to None.
+        subreddit (str): Name of the subreddit to search.
+        word_list (list): List of words to count in the post titles.
+        counts (dict, optional): Dictionary to store the counts of keywords.
+        after (str, optional): ID of the last post in the current batch.
     """
     if counts is None:
         counts = {}
@@ -23,9 +21,7 @@ def count_words(subreddit, word_list, counts=None, after=None):
     else:
         url = f"https://www.reddit.com/r/{subreddit}/hot/.json?after={after}"
 
-    headers = {
-        "User-Agent": "alx.api.advanced:v1.0.0 (by /u/imannnnnnnnn)"
-    }
+    headers = {"User-Agent": "alx.api.advanced:v1.0.0 (by /u/imannnnnnnnn)"}
 
     response = requests.get(url, headers=headers, allow_redirects=False)
 
