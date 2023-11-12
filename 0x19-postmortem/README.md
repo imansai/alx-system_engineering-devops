@@ -5,9 +5,9 @@
   - Start Time: November 12, 2023, 09:15 AM (GMT+1)
   - End Time: November 12, 2023, 11:45 AM (GMT+1)
 - **Impact:**
-  - Web application downtime: 30 minutes
-  - Users experienced slow response times and intermittent errors
-  - Approximately 12% of users were affected
+  - 🚫 Web application downtime: 30 minutes
+  - 🐢 Users experienced slow response times and intermittent errors
+  - 🤔 Approximately 12% of users were affected
 
 ## Root Cause
 - The outage was caused by a database connection leak that led to a spike in connection pool usage, exhausting available resources.
